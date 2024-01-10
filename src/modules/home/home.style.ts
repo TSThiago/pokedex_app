@@ -12,7 +12,7 @@ export const homeStyle = StyleSheet.create({
         marginBottom: 10,
         fontSize: 32,
         fontFamily: 'Roboto-Bold',
-        color: 'black'
+        color: 'black',
     },
     pokemonList: {
         height: '100%',
@@ -40,12 +40,14 @@ export const homeStyle = StyleSheet.create({
 
     },
     pokemonName: {
+        textTransform: 'capitalize',
         padding: 8,
         color: 'black',
         fontFamily: 'Roboto-Medium',
         fontSize: 20,
     },
     type: {
+        textTransform: 'capitalize',
         margin: 4,
         fontSize: 16,
         backgroundColor: '#61E1CA',
