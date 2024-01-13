@@ -6,25 +6,37 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { homeStyle } from './home.style';
-import Api from '../../services/api/getPokemons';
 import { useEffect, useState } from 'react';
+import getPokemons from '../../services/api/getPokemons';
+import { PokemonPage } from '../../types/pokemon.interface';
+import axios from 'axios';
+import { styles } from '../../styles/global.style';
 
 const Home = () => {
     const [pokemons, setPokemons] = useState([])
-    const [pokemon, setPokemon] = useState("")
+    const [pokemonPages, setPokemonPages] = useState<PokemonPage[] | undefined>([])
 
-    const getPokemons = async (offset: number, limit: number) => {
-        try {
-            const response = await Api.get(`pokemon?offset=${offset}&limit=${limit}`);
-            setPokemons(response.data.results)
-        } catch (error) {
-            console.log("ERROR " + error)
-        }
-    }
+    const getPokemonURLS = async () => {
+        getPokemons()
+            .then(async (res) => {
+                if (res === undefined) {
+                    console.log("ERROR: POKEMON LIST UNDEFINED");
+                } else {
+                    const pokes = await Promise.all(
+                        res.map(async (resp) => {
+                            const res = (await axios.get(resp.url)).data;
+                            return res;
+                        })
+                    );
+                    return pokes;
+                };
+            });
+    };
 
     useEffect(() => {
-        getPokemons(0, 5)
+        getPokemonURLS()
     }, [])
+
 
     return (
         <View style={homeStyle.home}>
@@ -34,16 +46,18 @@ const Home = () => {
                     return (
                         <TouchableOpacity style={homeStyle.pokemon}>
                             <View >
-                                <Text style={homeStyle.pokemonNumber}>#001</Text>
+                                <Text style={homeStyle.pokemonNumber}>#{pokemon.id}</Text>
                                 <Text style={homeStyle.pokemonName}>{pokemon.name}</Text>
                                 <View>
-                                    <Text style={homeStyle.type}>Grass</Text>
-                                    <Text style={homeStyle.type}>Poison</Text>
+                                    {pokemon.types.map((typeSloth) => {
+                                        return (
+                                            <Text style={homeStyle.type}>{typeSloth.type.name}</Text>
+                                        )
+                                    })}
                                 </View>
-
                             </View>
-                            <Image source={{ uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png' }}
-                                style={{ width: 180, height: 220, alignSelf: 'flex-end' }} />
+                            <Image source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png` }}
+                                style={{ width: 170, height: 200, alignSelf: 'flex-end' }} />
                         </TouchableOpacity>
                     )
                 })}

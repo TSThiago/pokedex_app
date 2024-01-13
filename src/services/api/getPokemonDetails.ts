@@ -1,6 +1,14 @@
-import { convertPokeApiDetailsToPokemon } from "../../shared/adapters/adaptPokemonList/adaptPokemonList"
+// import axios from "axios";
+// import { PokemonPage } from "../../types/pokemon.interface";
 
-export const getPokemonDetails = (pokemon: any) => {
-    return fetch(pokemon.url).then(response => response.json())
-    .then((pokemon => convertPokeApiDetailsToPokemon))
-}
+// const getPokemonDetails = async (pokemonsPages: PokemonPage[]) => {
+//     const pokemons = await Promise.all(
+//         pokemonsPages.map(async (pokemonsPage) => {
+//             const res = (await axios.get(pokemonsPage.url)).data;
+//             return res;
+//         })
+//     );
+//     return pokemons;
+// };
+
+// export default getPokemonDetails;
