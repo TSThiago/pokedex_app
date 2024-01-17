@@ -5,17 +5,20 @@ import {
   ImageBackground
 } from 'react-native';
 import Home from './src/modules/home/Home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Pokemon from './src/modules/pokemon/Pokemon';
 
-const backgroundImage = {uri: 'https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png'};
+const Stack = createNativeStackNavigator()
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.container}>
-      <ImageBackground source={backgroundImage} resizeMode='cover' style={styles.backgroundImage}>
-        <Home />
-      </ImageBackground>
-
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen name='Pokemon' component={Pokemon}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
