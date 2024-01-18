@@ -1,0 +1,1 @@
+export const backgroundImage = { uri: 'https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png' };

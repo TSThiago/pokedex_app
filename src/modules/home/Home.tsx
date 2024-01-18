@@ -12,10 +12,12 @@ import { useEffect, useState } from 'react';
 import getPokemons from '../../services/api/getPokemons';
 import axios from 'axios';
 import { styles } from '../../styles/global.style';
+import { useNavigation } from '@react-navigation/native';
+import { StackTypes } from '../../routes/stack';
+import { backgroundImage } from '../../shared/backgroundImage/backgroundImage';
 
-const backgroundImage = { uri: 'https://assets.pokemon.com/static2/_ui/img/chrome/container_bg.png' };
-
-const Home = ({navigation, route}) => {
+const Home = () => {
+    const navigation = useNavigation<StackTypes>();
     const [pokemons, setPokemons] = useState([])
 
     const getPokemonURLS = async () => {
@@ -47,10 +49,9 @@ const Home = ({navigation, route}) => {
                     <ScrollView style={homeStyle.pokemonList} showsVerticalScrollIndicator={false}>
                         {pokemons.map((pokemon) => {
                             return (
-                                <TouchableOpacity onPress={() => {
-                                    navigation.navigate({
-                                        name: 'Pokemon',
-                                        pokemonId: pokemon.id
+                                <TouchableOpacity key={pokemon.id} onPress={() => {
+                                    navigation.navigate('Pokemon', {
+                                        pokemonName: pokemon.name
                                     })
                                 }} style={homeStyle.pokemon}>
                                     <View >

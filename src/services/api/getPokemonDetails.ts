@@ -1,14 +1,11 @@
-// import axios from "axios";
-// import { PokemonPage } from "../../types/pokemon.interface";
+import Api from "./api";
+import adaptPokemonDetails from "../../shared/adapters/adaptPokemonDetails";
 
-// const getPokemonDetails = async (pokemonsPages: PokemonPage[]) => {
-//     const pokemons = await Promise.all(
-//         pokemonsPages.map(async (pokemonsPage) => {
-//             const res = (await axios.get(pokemonsPage.url)).data;
-//             return res;
-//         })
-//     );
-//     return pokemons;
-// };
+const getPokemonDetails = async (pokemonName : string) => {
+    const response = await Api.get(`pokemon/${pokemonName}`);
+    const pokemonDetails = adaptPokemonDetails(response);
+    
+    return pokemonDetails;
+};
 
-// export default getPokemonDetails;
+export default getPokemonDetails;
