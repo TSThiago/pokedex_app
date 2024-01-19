@@ -42,5 +42,37 @@ export const pokemonStyles = StyleSheet.create({
         position: 'absolute',
         right: 10,
         top: 60
+    },
+    imageContainer: {
+        position: 'absolute',
+        top: 100,
+        zIndex: 1,
+    },
+    pokemonImage: {
+        width: 250,
+        height: 250
+    },
+    detailsContainer: {
+        marginTop: 'auto',
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+        height: '60%',
+        width:'100%',
+        backgroundColor: '#fff',
+    },
+    detailsHeader: {
+        flexDirection:'row',
+        justifyContent: 'space-around',
+        marginTop: 45,
+        padding: 20,
+        width: '100%',
+    },
+    detailTitle: {
+        marginTop: 10,
+        padding: 10,
+        paddingBottom: 20,
+        fontSize: 18,
+        fontFamily: 'Roboto-Medium',
+        borderBottomWidth: 1,
     }
 })

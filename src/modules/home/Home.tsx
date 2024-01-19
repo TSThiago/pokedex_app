@@ -51,7 +51,8 @@ const Home = () => {
                             return (
                                 <TouchableOpacity key={pokemon.id} onPress={() => {
                                     navigation.navigate('Pokemon', {
-                                        pokemonName: pokemon.name
+                                        pokemonName: pokemon.name,
+                                        pokemonNumber: pokemon.id
                                     })
                                 }} style={homeStyle.pokemon}>
                                     <View >

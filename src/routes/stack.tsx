@@ -18,7 +18,7 @@ const StackComponent = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name='Home' component={Home}/>
-        <Stack.Screen name='Pokemon' component={Pokemon} initialParams={{pokemonName: 'bulbasaur'}}/>
+        <Stack.Screen name='Pokemon' component={Pokemon} initialParams={{pokemonName: 'bulbasaur', pokemonNumber: 1}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
