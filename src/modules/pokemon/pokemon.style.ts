@@ -33,7 +33,7 @@ export const pokemonStyles = StyleSheet.create({
         paddingHorizontal: 30,
         borderRadius: 50,
         backgroundColor: '#84DECA',
-        
+        textTransform: 'capitalize'
     },
     pokemonNumber: {
         fontSize: 16,
@@ -74,5 +74,11 @@ export const pokemonStyles = StyleSheet.create({
         fontSize: 18,
         fontFamily: 'Roboto-Medium',
         borderBottomWidth: 1,
-    }
+    },
+    details: {
+        width: '90%',
+        marginBottom: 20,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
 })
