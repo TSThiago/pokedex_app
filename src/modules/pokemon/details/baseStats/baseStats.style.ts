@@ -20,7 +20,6 @@ export const baseStatsStyle = StyleSheet.create({
     statBar: {
         width: 255,
         borderWidth: 1,
-        // height: 10,
         marginLeft: 'auto'
     },
 

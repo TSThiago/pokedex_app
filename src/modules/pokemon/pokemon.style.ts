@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
+import { pokemonTypeColor } from "../../shared/colors/colors";
 
 export const pokemonStyles = StyleSheet.create({
     pokemonContainer: {
         width: '100%',
         height: '100%',
         alignItems: 'center',
-        backgroundColor: '#71CDB1'
     },
     pokemonHeader: {
         height: "20%",
@@ -14,9 +14,10 @@ export const pokemonStyles = StyleSheet.create({
     },
     pokemonName: {
         fontSize: 40,
-        color: '#fff',
+        color: '#000',
         fontFamily: 'Roboto-Bold',
         textTransform: 'capitalize',
+        opacity: 0.5
     },
     pokemonTypes: {
         marginTop: 10,
@@ -26,13 +27,13 @@ export const pokemonStyles = StyleSheet.create({
     },
     type: {
         fontFamily: 'Roboto-Medium',
-        color: '#fff',
+        color: '#000',
         fontSize: 16,
         paddingTop: 10,
         paddingBottom: 10,
         paddingHorizontal: 30,
         borderRadius: 50,
-        backgroundColor: '#84DECA',
+        backgroundColor: '#E9E9E9',
         textTransform: 'capitalize'
     },
     pokemonNumber: {

@@ -45,16 +45,19 @@ export const homeStyle = StyleSheet.create({
         color: 'black',
         fontFamily: 'Roboto-Medium',
         fontSize: 20,
+        marginLeft: 'auto',
+        marginRight: 'auto'
     },
     type: {
         textTransform: 'capitalize',
         margin: 4,
         fontSize: 16,
-        backgroundColor: '#61E1CA',
+        backgroundColor: '#E9E9E9',
         color: 'black',
         fontFamily: 'Roboto-Medium',
         padding: 4,
         borderRadius: 16,
-        textAlign: 'center'
+        textAlign: 'center',
+        width: 100
     }
 })
