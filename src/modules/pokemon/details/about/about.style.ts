@@ -16,6 +16,12 @@ export const aboutStyle = StyleSheet.create({
     aboutDescription: {
         fontFamily: 'Roboto-Bold',
         fontSize: 18,
-        marginLeft: 30
+        marginLeft: 30,
+    },
+    aboutAbilities: {
+        fontFamily: 'Roboto-Bold',
+        fontSize: 18,
+        marginLeft: 30,
+        textTransform: 'capitalize'
     }
 })

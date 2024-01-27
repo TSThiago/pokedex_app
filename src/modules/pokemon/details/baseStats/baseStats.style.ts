@@ -6,9 +6,10 @@ export const baseStatsStyle = StyleSheet.create({
         alignItems: 'center'
     },
     statTitle: {
-        width: 70,
+        width: 80,
+        paddingVertical: 4,
         fontFamily: 'Roboto-Bold',
-        fontSize: 18,
+        fontSize: 16,
         opacity: 0.6,
         marginBottom: 5
     },
@@ -18,7 +19,7 @@ export const baseStatsStyle = StyleSheet.create({
         marginLeft: 'auto'
     },
     statBar: {
-        width: 255,
+        width: 220,
         borderWidth: 1,
         marginLeft: 'auto'
     },
