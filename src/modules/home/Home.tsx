@@ -1,81 +1,100 @@
-import {
-    ScrollView,
-    Text,
-    View,
-    Image,
-    TouchableOpacity,
-    SafeAreaView,
-    ImageBackground,
-} from 'react-native';
-import { homeStyle } from './home.style';
-import { useEffect, useState } from 'react';
-import getPokemons from '../../services/api/getPokemons';
-import axios from 'axios';
-import { styles } from '../../styles/global.style';
-import { useNavigation } from '@react-navigation/native';
-import { StackTypes } from '../../routes/stack';
-import { backgroundImage } from '../../shared/backgroundImage/backgroundImage';
+import { useNavigation } from "@react-navigation/native"
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native"
+import { StackTypes } from "../../routes/stack"
+import { homeStyle } from "./home.style";
+import { backgroundImage } from "../../shared/backgroundImage/backgroundImage";
 
 const Home = () => {
-    const navigation = useNavigation<StackTypes>();
-    const [pokemons, setPokemons] = useState([])
-
-    const getPokemonURLS = async () => {
-        getPokemons()
-            .then(async (res) => {
-                if (res === undefined) {
-                    console.log("ERROR: POKEMON LIST UNDEFINED");
-                } else {
-                    const pokes = await Promise.all(
-                        res.map(async (resp) => {
-                            const res = (await axios.get(resp.url)).data;
-                            return res;
-                        })
-                    );
-                    setPokemons(pokes)
-                };
-            });
-    };
-
-    useEffect(() => {
-        getPokemonURLS()
-    }, [])
+    const navigation = useNavigation<StackTypes>()
 
     return (
-        <SafeAreaView style={styles.container}>
-            <ImageBackground source={backgroundImage} resizeMode='cover' style={styles.backgroundImage}>
-                <View style={homeStyle.home}>
-                    <Text style={homeStyle.title}>Pokédex</Text>
-                    <ScrollView style={homeStyle.pokemonList} showsVerticalScrollIndicator={false}>
-                        {pokemons.map((pokemon) => {
-                            return (
-                                <TouchableOpacity key={pokemon.id} onPress={() => {
-                                    navigation.navigate('Pokemon', {
-                                        pokemonName: pokemon.name,
-                                        pokemonNumber: pokemon.id
-                                    })
-                                }} style={homeStyle.pokemon}>
-                                    <View >
-                                        <Text style={homeStyle.pokemonNumber}>#{pokemon.id}</Text>
-                                        <Text style={homeStyle.pokemonName}>{pokemon.name}</Text>
-                                        <View style={homeStyle.types}>
-                                            {pokemon.types.map((typeSloth) => {
-                                                return (
-                                                    <Text style={homeStyle.type}>{typeSloth.type.name}</Text>
-                                                )
-                                            })}
-                                        </View>
-                                    </View>
-                                    <Image source={{ uri: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png` }}
-                                        style={{ width: 170, height: 200, alignSelf: 'flex-end' }} />
-                                </TouchableOpacity>
-                            )
-                        })}
-                    </ScrollView>
-                </View>
+        <View style={homeStyle.home}>
+            <ImageBackground source={backgroundImage} resizeMode='cover' style={homeStyle.backgroundImage}>
+                <Text style={homeStyle.title}>Pokédex</Text>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 1,
+                        offset: 0,
+                        limit: 151,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 1</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 2,
+                        offset: 151,
+                        limit: 100,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 2</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 3,
+                        offset: 251,
+                        limit: 135,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 3</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 4,
+                        offset: 386,
+                        limit: 107,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 4</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 5,
+                        offset: 493,
+                        limit: 155,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 5</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 6,
+                        offset: 649,
+                        limit: 71,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 6</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 7,
+                        offset: 721,
+                        limit: 88,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 7</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 8,
+                        offset: 809,
+                        limit: 96,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 8</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={homeStyle.button} onPress={() => {
+                    navigation.navigate('Generation', {
+                        generation: 9,
+                        offset: 905,
+                        limit: 119,
+                    })
+                }}>
+                    <Text style={homeStyle.buttonText}>Generation 9</Text>
+                </TouchableOpacity>
             </ImageBackground>
-        </SafeAreaView>
-    );
+        </View>
+    )
 };
 
 export default Home;

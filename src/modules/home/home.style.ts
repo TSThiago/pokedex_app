@@ -1,10 +1,13 @@
 import { StyleSheet } from "react-native";
 
 export const homeStyle = StyleSheet.create({
-    home: {
-        height:'100%',
-        width:'100%',
-        justifyContent:'center',
+    home:{
+        height: '100%',
+        width: '100%'
+    },
+    backgroundImage: {
+        width: '100%',
+        height: '100%',
         alignItems: 'center',
     },
     title: {
@@ -14,50 +17,14 @@ export const homeStyle = StyleSheet.create({
         fontFamily: 'Roboto-Bold',
         color: 'black',
     },
-    pokemonList: {
-        height: '100%',
-        width: '90%',
+    button: {
+        padding: 15,
+        paddingHorizontal: 70,
+        backgroundColor: '#fff',
+        marginBottom: 8,
     },
-
-    pokemon: {
-        marginLeft:'5%',
-        width: '90%',
-        height: 200,
-        padding: 16,
-        marginBottom: 20,
-        backgroundColor: '#F2F2F2',
-        borderRadius: 16,
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    pokemonNumber: {
-        marginTop: 5,
-        marginBottom: 10,
-        marginLeft: 8,
-        fontFamily: 'Roboto-Medium',
-        color: 'black',
-        opacity: 0.3,
-
-    },
-    pokemonName: {
-        textTransform: 'capitalize',
-        padding: 8,
-        color: 'black',
-        fontFamily: 'Roboto-Medium',
-        fontSize: 20,
-        marginLeft: 'auto',
-        marginRight: 'auto'
-    },
-    type: {
-        textTransform: 'capitalize',
-        margin: 4,
-        fontSize: 16,
-        backgroundColor: '#E9E9E9',
-        color: 'black',
-        fontFamily: 'Roboto-Medium',
-        padding: 4,
-        borderRadius: 16,
-        textAlign: 'center',
-        width: 100
+    buttonText: {
+        fontSize: 24,
+        fontFamily: 'Roboto-Bold'
     }
 })

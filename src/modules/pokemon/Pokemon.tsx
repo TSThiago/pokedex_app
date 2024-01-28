@@ -112,7 +112,7 @@ const Pokemon = ({ route }) => {
                                                     <Text style={baseStatsStyle.statTitle}>{(statSlot.stat.name).toUpperCase()}</Text>
                                                     <Text style={baseStatsStyle.statValue}>{statSlot.base_stat}</Text>
                                                     <View style={baseStatsStyle.statBar}>
-                                                        <View style={{ height: 8, width: (statSlot.base_stat * 0.86), backgroundColor: pokemonTypeColor.grass }}></View>
+                                                        <View style={{ height: 8, width: (statSlot.base_stat * 0.855), backgroundColor: pokemonTypeColor.grass }}></View>
                                                     </View>
                                                 </View>
                                             )
